@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hysea.city.mapper.CityMapper">
+
+    <select id="selectCountByCityId" resultType="java.lang.Integer">
+        select count(*)
+        from city
+        where city_id = #{cityId}
+    </select>
+
+    <select id="selectAllByCityId" resultMap="City">
+        select *
+        from city
+        where city_id = #{cityId}
+    </select>
+
+    <delete id="deleteCityByCityId">
+        delete from city
+        where city_id = #{cityId}
+    </delete>
+
+    <update id="updateCityByCityId">
+        update city
+        <trim prefix="set" suffixOverrides=",">
+            <if test="parentId != null">
+                parent_id = #{parentId},
+            </if>
+            <if test="adcode != null">
+                adcode = #{adcode},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="center != null">
+                center = #{center},
+            </if>
+            <if test="level != null">
+                level = #{level},
+            </if>
+            <if test="citycode != null">
+                citycode = #{citycode},
+            </if>
+        </trim>
+        where city_id = #{cityId}
+    </update>
+
+    <insert id="batchInsertCity" keyProperty="cityId" useGeneratedKeys="true">
+        insert into city (`city_id`,`parent_id`,`adcode`,`name`,`center`,`level`,`citycode`)
+        values
+        <foreach collection="cityList" item="city" index="index" separator=",">
+            (#{city.cityId},#{city.parentId},#{city.adcode},#{city.name},#{city.center},#{city.level},#{city.citycode})
+        </foreach>
+    </insert>
+
+    <insert id="insertCity" keyProperty="cityId" useGeneratedKeys="true">
+        insert into city (`city_id`,`parent_id`,`adcode`,`name`,`center`,`level`,`citycode`)
+        values
+        (#{cityId},#{parentId},#{adcode},#{name},#{center},#{level},#{citycode})
+    </insert>
+
+    <select id="selectAll" resultMap="City">
+        select *
+        from city
+    </select>
+
+
+    <resultMap id="City" type="com.hysea.city.entity.po.City">
+        <result column="city_id" property="cityId"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="adcode" property="adcode"/>
+        <result column="name" property="name"/>
+        <result column="center" property="center"/>
+        <result column="level" property="level"/>
+        <result column="citycode" property="citycode"/>
+    </resultMap>
+</mapper>
