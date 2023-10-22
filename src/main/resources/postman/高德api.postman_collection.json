@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "5588ac97-7388-4b1f-bd7c-597b43da45e0",
+		"name": "高德api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "根据ip获取定位",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapi.amap.com/v3/ip?output=json&key=4cc24b2e7967aaef5b2dcb313b01463c",
+					"protocol": "https",
+					"host": [
+						"restapi",
+						"amap",
+						"com"
+					],
+					"path": [
+						"v3",
+						"ip"
+					],
+					"query": [
+						{
+							"key": "ip",
+							"value": "114.247.50.2",
+							"disabled": true
+						},
+						{
+							"key": "output",
+							"value": "json"
+						},
+						{
+							"key": "key",
+							"value": "4cc24b2e7967aaef5b2dcb313b01463c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取行政区",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapi.amap.com/v3/config/district?key=4cc24b2e7967aaef5b2dcb313b01463c&subdistrict=3",
+					"protocol": "https",
+					"host": [
+						"restapi",
+						"amap",
+						"com"
+					],
+					"path": [
+						"v3",
+						"config",
+						"district"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "4cc24b2e7967aaef5b2dcb313b01463c"
+						},
+						{
+							"key": "subdistrict",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "关键词搜索地点",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapi.amap.com/v3/place/text?key=4cc24b2e7967aaef5b2dcb313b01463c&city=440100&keywords=图书馆",
+					"protocol": "https",
+					"host": [
+						"restapi",
+						"amap",
+						"com"
+					],
+					"path": [
+						"v3",
+						"place",
+						"text"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "4cc24b2e7967aaef5b2dcb313b01463c"
+						},
+						{
+							"key": "city",
+							"value": "440100"
+						},
+						{
+							"key": "keywords",
+							"value": "图书馆"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "路线规划",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapi.amap.com/v3/direction/driving?origin=116.45925,39.910031&destination=116.587922,40.081577&output=json&key=4cc24b2e7967aaef5b2dcb313b01463c",
+					"protocol": "https",
+					"host": [
+						"restapi",
+						"amap",
+						"com"
+					],
+					"path": [
+						"v3",
+						"direction",
+						"driving"
+					],
+					"query": [
+						{
+							"key": "origin",
+							"value": "116.45925,39.910031"
+						},
+						{
+							"key": "destination",
+							"value": "116.587922,40.081577"
+						},
+						{
+							"key": "output",
+							"value": "json"
+						},
+						{
+							"key": "key",
+							"value": "4cc24b2e7967aaef5b2dcb313b01463c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "逆地理编码",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapi.amap.com/v3/geocode/regeo?key=4cc24b2e7967aaef5b2dcb313b01463c&location=113.6770499,23.3809537",
+					"protocol": "https",
+					"host": [
+						"restapi",
+						"amap",
+						"com"
+					],
+					"path": [
+						"v3",
+						"geocode",
+						"regeo"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "4cc24b2e7967aaef5b2dcb313b01463c"
+						},
+						{
+							"key": "location",
+							"value": "113.6770499,23.3809537"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
